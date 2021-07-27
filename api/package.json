@@ -1,0 +1,9 @@
+{
+  "name": "albert.works-api",
+  "version": "1.0.0",
+  "description": "Serverless functions for my personal website",
+  "author": "Albert Abdulmanov <hello@albert.works>",
+  "dependencies": {
+    "airtable": "^0.11.0"
+  }
+}
