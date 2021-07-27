@@ -6,7 +6,7 @@ const wishlist = {
     "giftIdeas": "Gift Ideas",
     "recipients": "Recipients"
   },
-  "fields": ["Item", "URL", "Done", "Own"],
+  "fields": ["Item", "URL", "Pic", "Done", "Own"],
   "sort": [
     {
       "field": "Done",
