@@ -7,4 +7,4 @@
 
 # TECHNOLOGY COLOPHON
 
-    TailwindCSS, Preact, Typescript, Vercel serverless functions
+    React, Typescript, Typescript, TailwindCSS, Vercel serverless functions

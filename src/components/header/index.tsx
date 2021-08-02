@@ -1,14 +1,16 @@
-import { FunctionComponent } from 'preact'
-import { links } from './links'
+import { FC } from "react";
+import { links } from "./links";
 
-const Header: FunctionComponent = () => {
+const Header: FC = () => {
   return (
     <header className="hidden">
       {links.map(({ href, text }) => (
-        <a href={href}>{text}</a>
+        <a key={href} href={href}>
+          {text}
+        </a>
       ))}
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

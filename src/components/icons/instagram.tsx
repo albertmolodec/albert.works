@@ -1,4 +1,4 @@
-export const SvgInstagram = props => (
+export const SvgInstagram = (props) => (
   <svg
     viewBox="0 0 512 512"
     width="1em"
@@ -10,4 +10,4 @@ export const SvgInstagram = props => (
     <path d="M256 128c-70.688 0-128 57.312-128 128s57.312 128 128 128 128-57.312 128-128-57.312-128-128-128zm0 208c-44.096 0-80-35.904-80-80 0-44.128 35.904-80 80-80s80 35.872 80 80c0 44.096-35.904 80-80 80z" />
     <circle cx={393.6} cy={118.4} r={17.056} />
   </svg>
-)
+);

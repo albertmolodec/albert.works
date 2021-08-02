@@ -1,51 +1,51 @@
-import { SvgEmail } from '../../components/icons/email'
-import { SvgTwitter } from '../../components/icons/twitter'
-import { SvgInstagram } from '../../components/icons/instagram'
-import { SvgTelegram } from '../../components/icons/telegram'
-import { SvgGithub } from '../../components/icons/github'
-import { SvgFacebook } from '../../components/icons/facebook'
-import { SvgLinkedin } from '../../components/icons/linkedin'
+import { SvgEmail } from "../../components/icons/email";
+import { SvgTwitter } from "../../components/icons/twitter";
+import { SvgInstagram } from "../../components/icons/instagram";
+import { SvgTelegram } from "../../components/icons/telegram";
+import { SvgGithub } from "../../components/icons/github";
+import { SvgFacebook } from "../../components/icons/facebook";
+import { SvgLinkedin } from "../../components/icons/linkedin";
 
 interface Social {
-  text: string
-  icon: typeof SvgEmail
-  url: string
+  text: string;
+  icon: typeof SvgEmail;
+  url: string;
 }
 
 export const socials: Social[] = [
   {
-    text: 'Email',
+    text: "Email",
     icon: SvgEmail,
-    url: 'mailto:hello@lbrt.me',
+    url: "mailto:hello@lbrt.me",
   },
   {
-    text: 'Twitter',
+    text: "Twitter",
     icon: SvgTwitter,
-    url: 'https://twitter.com/albertmolodec',
+    url: "https://twitter.com/albertmolodec",
   },
   {
-    text: 'Instagram',
+    text: "Instagram",
     icon: SvgInstagram,
-    url: 'https://instagram.com/albertmolodec',
+    url: "https://instagram.com/albertmolodec",
   },
   {
-    text: 'Telegram',
+    text: "Telegram",
     icon: SvgTelegram,
-    url: 'http://t.me/albertmolodec',
+    url: "http://t.me/albertmolodec",
   },
   {
-    text: 'Github',
+    text: "Github",
     icon: SvgGithub,
-    url: 'https://github.com/albertmolodec',
+    url: "https://github.com/albertmolodec",
   },
   {
-    text: 'Facebook',
+    text: "Facebook",
     icon: SvgFacebook,
-    url: 'https://www.facebook.com/profile.php?id=100001486167096',
+    url: "https://www.facebook.com/profile.php?id=100001486167096",
   },
   {
-    text: 'LinkedIn',
+    text: "LinkedIn",
     icon: SvgLinkedin,
-    url: 'https://www.linkedin.com/in/albert-abdulmanov',
+    url: "https://www.linkedin.com/in/albert-abdulmanov",
   },
-]
+];
