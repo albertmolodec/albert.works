@@ -1,13 +1,14 @@
 import Image from 'next/image'
 
-import avatar from './me.png'
+import avatar from './me.webp'
 import { socials } from './socials'
 
 export default function Home() {
   return (
     <>
+      <h1 className="sr-only">Albert Abdulmanov's home page.</h1>
       <div className="flex flex-col sm:flex-row">
-        <Image src={avatar} className="w-48 h-48" alt="My low poly photo" />
+        <Image alt="My low poly photo" src={avatar} layout="fixed" width={256} height={256} />
 
         <div className="leading-tight mt-8 sm:mt-0 sm:ml-8 flex flex-col justify-center">
           <p className="text-2xl md:text-3xl">Hello, I am</p>

@@ -1,9 +1,10 @@
 const colors = require('tailwindcss/colors')
+delete colors['lightBlue'] // temp fix to clean up logs
 
 module.exports = {
   mode: 'jit',
   darkMode: false,
-  purge: ['./src/**/*.{js,jsx,ts,tsx,svg}'],
+  purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     colors,
   },

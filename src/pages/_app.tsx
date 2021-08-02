@@ -1,11 +1,10 @@
-import 'tailwindcss/tailwind.css'
+import './globals.css'
 
-import { initAnalytics } from "../lib/analytics";
+import { initAnalytics } from '../lib/analytics'
 import Layout from '../components/layout'
 
-if (process.env.NODE_ENV !== "development") {
-  console.log('Init analytics')
-  initAnalytics();
+if (process.env.NODE_ENV !== 'development') {
+  initAnalytics()
 }
 
 function MyApp({ Component, pageProps }) {
