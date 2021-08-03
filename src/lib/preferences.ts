@@ -6,7 +6,7 @@ export const dislikeList: string[] = [
   'Books',
   'Plants',
   'Certificates for active recreation',
-  'Any alcohol except cider and vine',
+  'Any alcohol except cider and wine',
 ]
 
 export const supportList: Link[] = [
