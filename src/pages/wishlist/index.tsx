@@ -1,32 +1,25 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { Fragment } from 'react'
+import ContentLoader from 'react-content-loader'
 import useSWR from 'swr'
-import * as Progress from '@radix-ui/react-progress'
 
+import { MyMath } from '../../lib/math'
 import { dislikeList, supportList } from '../../lib/preferences'
 
-// if (Done) {
-//   spanElement.style.textDecoration = 'line-through'
-// }
+const EXPECTED_WISHLIST_LENGTH = 19
 
-// if (URL) {
-//   const aElement = document.createElement('a')
-//   aElement.href = URL
-//   aElement.target = '_blank'
-//   aElement.classList.add('text-blue-500')
-//   aElement.classList.add('hover:underline')
-//   wrap(spanElement, aElement)
-// }
-
-// if (Own) {
-//   spanElement.innerHTML += ` <span class="text-gray-500">(куплю себе сам)</span>`
-// }
+const renderLines = (n: number) => {
+  return Array.from(Array(n).keys()).map((_, index) => (
+    <Fragment key={index}>
+      <circle cx="10" cy={20 + 30 * index} r="8" />
+      <rect x="25" y={15 + 30 * index} rx="5" ry="5" width={380 * MyMath.randomFloatInRange(0.6, 1)} height="10" />
+    </Fragment>
+  ))
+}
 
 const Wishlist = () => {
-  const { data, error } = useSWR('/api/wishlist')
-
-  console.log({ data, error })
+  const { data } = useSWR('/api/wishlist')
 
   return (
     <>
@@ -41,18 +34,38 @@ const Wishlist = () => {
         </div>
       </div>
 
-      {error && <p>Failed to load data.</p>}
       {!data && (
-        <div className="py-8">
-          <Progress.Root className="mx-auto relative overflow-hidden bg-coolGray-300 rounded-full w-60 h-6" value={66}>
-            <Progress.Indicator
-              className="h-full bg-coolGray-900 transition-width duration-300"
-              style={{ width: `${20}%` }}
-            />
-          </Progress.Root>
-        </div>
+        <ContentLoader
+          speed={2}
+          width={400}
+          height={24 * EXPECTED_WISHLIST_LENGTH}
+          viewBox={`0 0 400 ${24 * EXPECTED_WISHLIST_LENGTH}`}
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+          uniqueKey="wishlist-loader"
+        >
+          {renderLines(EXPECTED_WISHLIST_LENGTH)}
+        </ContentLoader>
       )}
-      {data && <ol className="list-decimal pl-5 mt-4"></ol>}
+      {data && (
+        <ol className="list-decimal pl-5 mt-4">
+          {data.records.map(({ Item: name, Own, Done, URL }) => (
+            <li key={name}>
+              {URL && !Done && !Own ? (
+                <a href={URL} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline-link">
+                  {name}
+                </a>
+              ) : (
+                <span className="text-gray-500">
+                  <span className={`${Done || Own ? 'line-through' : 'text-black'}`}>{name}</span>
+                  {Done && ' ✅'}
+                  {Own && ' (later)'}
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+      )}
 
       <p className="mt-3">
         There is another option. If you don't know what to give, you can make a donation to the one of the russian

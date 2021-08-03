@@ -16,6 +16,10 @@ const options = {
       field: 'Own',
       direction: 'asc',
     },
+    {
+      field: 'URL',
+      direction: 'desc',
+    },
   ],
 }
 
