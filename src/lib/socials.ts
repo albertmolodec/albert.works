@@ -1,10 +1,10 @@
-import { SvgEmail } from "../../components/icons/email";
-import { SvgTwitter } from "../../components/icons/twitter";
-import { SvgInstagram } from "../../components/icons/instagram";
-import { SvgTelegram } from "../../components/icons/telegram";
-import { SvgGithub } from "../../components/icons/github";
-import { SvgFacebook } from "../../components/icons/facebook";
-import { SvgLinkedin } from "../../components/icons/linkedin";
+import { SvgEmail } from "../components/icons/email";
+import { SvgTwitter } from "../components/icons/twitter";
+import { SvgInstagram } from "../components/icons/instagram";
+import { SvgTelegram } from "../components/icons/telegram";
+import { SvgGithub } from "../components/icons/github";
+import { SvgFacebook } from "../components/icons/facebook";
+import { SvgLinkedin } from "../components/icons/linkedin";
 
 interface Social {
   text: string;

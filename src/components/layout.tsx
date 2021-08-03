@@ -5,7 +5,7 @@ import Header from './header'
 
 const Layout: FC = ({ children }) => {
   return (
-    <div className="h-full min-h-screen flex flex-col p-4 text-gray-900">
+    <div className="h-full min-h-screen flex flex-col p-4 text-black">
       <Head>
         <meta charSet="UTF-8" />
         <title>Home - Albert Abdulmanov</title>

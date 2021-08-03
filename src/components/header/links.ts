@@ -1,7 +1,4 @@
-interface Link {
-  href: string
-  text: string
-}
+import { Link } from '../../types/Link'
 
 export const links: Link[] = [
   {
