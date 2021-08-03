@@ -1,5 +1,3 @@
-src/style.css
-# Start sharec-config ignore
 **/node_modules
 .DS_Store
 .env
@@ -10,4 +8,3 @@ src/style.css
 /build
 /tmp
 /temp
-# End sharec-config ignore

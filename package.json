@@ -1,55 +1,55 @@
 {
   "name": "www",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "My personal site",
   "author": "Albert Abdulmanov <hello@lbrt.me>",
   "homepage": "https://github.com/albertmolodec/www",
   "scripts": {
-    "start": "run-p start:wmr start:tailwind",
-    "start:wmr": "wmr --public src",
-    "start:tailwind": "NODE_ENV=development postcss ./src/assets/tailwind.css -o ./src/style.css -w",
-    "build": "run-s build:tailwind build:wmr",
-    "build:wmr": "wmr build --public src --prerender && mv dist/404/index.html dist/404.html",
-    "build:tailwind": "NODE_ENV=production postcss ./src/assets/tailwind.css -o ./src/style.css",
-    "serve": "wmr serve --public dist",
-    "lint": "run-p lint:*",
-    "format": "prettier --write 'src/**/*.(js|ts|jsx|tsx)'",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "update": "run-p update:*",
     "update:deps": "npx npm-check-updates",
     "update:cssdb": "npx browserslist@latest --update-db",
-    "lint:js": "eslint src --ext .js,.ts,.tsx",
-    "lint:css": "stylelint src/**/*.{pcss,css}",
     "generate-icons": "node scripts/generate-icons.js",
     "clean": "rm -rf .cache .vercel/cache dist"
   },
   "dependencies": {
+    "@radix-ui/react-progress": "0.0.14",
     "@splitbee/web": "^0.2.4",
-    "@tailwindcss/typography": "^0.4.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.14",
-    "postcss-cli": "^8.3.1",
-    "preact": "^10.5.13",
-    "preact-iso": "^2.0.1",
-    "tailwindcss": "^2.1.2",
-    "wmr": "^2.0.1"
+    "@tailwindcss/typography": "^0.4.1",
+    "next": "^11.0.1",
+    "postcss": "^8.3.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "swr": "^0.5.6",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@svgr/core": "^5.5.0",
     "@svgr/plugin-jsx": "^5.5.0",
-    "@svgr/plugin-prettier": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
-    "tiny-glob": "^0.2.8"
-  },
-  "alias": {
-    "react": "preact/compat",
-    "react-dom": "preact/compat"
+    "@types/node": "^16.4.10",
+    "@types/react": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-plugin-unicorn": "^34.0.1",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^2.2.7",
+    "tiny-glob": "^0.2.9"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/albertmolodec/www.git"
   },
+  "eslintConfig": {
+    "extends": "next"
+  },
   "volta": {
-    "node": "14.16.1"
+    "node": "14.17.4"
   }
 }
