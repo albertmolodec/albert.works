@@ -10,7 +10,7 @@ const Header: FC<{ className?: string }> = ({ className = '' }) => {
       <nav>
         <ul className="flex">
           {links.map(({ href, text }, index) => (
-            <li className={`p-2 ${index === 0 ? 'pl-0' : ''}`} key={href}>
+            <li className={`pl-4 ${index === 0 ? 'pl-0' : ''}`} key={href}>
               <a className={`hover:underline-link ${router.asPath === href ? 'font-bold' : ''}`} href={href}>{text}</a>
             </li>
           ))}
