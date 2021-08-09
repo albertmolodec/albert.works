@@ -1,7 +1,5 @@
 # My personal site
 
-[![Uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/albertmolodec/upptime/master/api/my-website/response-time.json)](https://status.lbrt.me/)
-
 Code, texts, projects and so on.
 
 ## Local development
