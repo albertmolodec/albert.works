@@ -3,7 +3,6 @@ import { SvgTwitter } from "../components/icons/twitter";
 import { SvgInstagram } from "../components/icons/instagram";
 import { SvgTelegram } from "../components/icons/telegram";
 import { SvgGithub } from "../components/icons/github";
-import { SvgFacebook } from "../components/icons/facebook";
 import { SvgLinkedin } from "../components/icons/linkedin";
 
 interface Social {
@@ -37,11 +36,6 @@ export const socials: Social[] = [
     text: "Github",
     icon: SvgGithub,
     url: "https://github.com/albertmolodec",
-  },
-  {
-    text: "Facebook",
-    icon: SvgFacebook,
-    url: "https://www.facebook.com/profile.php?id=100001486167096",
   },
   {
     text: "LinkedIn",
