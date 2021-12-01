@@ -41,7 +41,7 @@ vercel dev
 
 ```properties
 //registry.npmjs.org/:_authToken=TOKEN_FOR_NPM
-@albertmolodec:registry=https://npm.pkg.github.com
+@kitcatdotone:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=TOKEN_FOR_GITHUB_PACKAGES
 ```
 

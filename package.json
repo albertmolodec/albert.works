@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "description": "My personal site",
   "author": "Albert Abdulmanov <hello@lbrt.me>",
-  "homepage": "https://github.com/albertmolodec/www",
+  "homepage": "https://github.com/kitcatdotone/www",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -44,7 +44,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/albertmolodec/www.git"
+    "url": "git+https://github.com/kitcatdotone/www.git"
   },
   "eslintConfig": {
     "extends": "next"

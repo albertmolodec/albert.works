@@ -20,12 +20,12 @@ export const socials: Social[] = [
   {
     text: "Twitter",
     icon: SvgTwitter,
-    url: "https://twitter.com/albertmolodec",
+    url: "https://twitter.com/kitcatdotone",
   },
   {
     text: "Instagram",
     icon: SvgInstagram,
-    url: "https://instagram.com/albertmolodec",
+    url: "https://instagram.com/kitcatdotone",
   },
   {
     text: "Telegram",
@@ -35,7 +35,7 @@ export const socials: Social[] = [
   {
     text: "Github",
     icon: SvgGithub,
-    url: "https://github.com/albertmolodec",
+    url: "https://github.com/kitcatdotone",
   },
   {
     text: "LinkedIn",
