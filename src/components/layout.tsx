@@ -11,7 +11,11 @@ const Layout: FC = ({ children }) => {
         <title>Home - Albert Abdulmanov</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Frontend Developer from St. Petersburg 🇷🇺" />
+        z``
         <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
       <Header className="max-w-screen-md mx-auto w-full" />
       <main className="max-w-screen-md mx-auto w-full flex flex-col flex-1 py-4">{children}</main>
