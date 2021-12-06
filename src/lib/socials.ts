@@ -15,17 +15,17 @@ export const socials: Social[] = [
   {
     text: "Email",
     icon: SvgEmail,
-    url: "mailto:hello@lbrt.me",
+    url: "mailto:hello@kitcat.one",
   },
   {
     text: "Twitter",
     icon: SvgTwitter,
-    url: "https://twitter.com/kitcatdotone",
+    url: "https://twitter.com/kitcat_ru",
   },
   {
     text: "Instagram",
     icon: SvgInstagram,
-    url: "https://instagram.com/kitcatdotone",
+    url: "https://instagram.com/albertmolodec",
   },
   {
     text: "Telegram",
