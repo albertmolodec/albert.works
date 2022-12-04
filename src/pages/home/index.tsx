@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <h1 className="sr-only">Albert Abdulmanov{ap}s home page.</h1>
       <div className="flex flex-col sm:flex-row">
-        <Image alt="My low poly photo" src={avatar} layout="fixed" width={256} height={256} />
+        <Image alt="My low poly photo" src={avatar} width={256} height={256} />
 
         <div className="leading-tight mt-8 sm:mt-0 sm:ml-8 flex flex-col justify-center">
           <p className="text-2xl md:text-3xl">Hello, I am</p>

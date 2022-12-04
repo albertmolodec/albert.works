@@ -25,7 +25,7 @@ const options = {
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(WISHLIST_BASE_ID)
 
-async function wishlist(req, res) {
+async function wishlist(_, res) {
   const records = await new Promise((resolve, reject) => {
     const myWishes = []
     base(options.table.giftIdeas)
