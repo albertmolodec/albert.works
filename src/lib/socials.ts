@@ -15,12 +15,12 @@ export const socials: Social[] = [
   {
     text: "Email",
     icon: SvgEmail,
-    url: "mailto:hello@kitcat.one",
+    url: "mailto:hello@kitcat.dev",
   },
   {
     text: "Twitter",
     icon: SvgTwitter,
-    url: "https://twitter.com/kitcat_ru",
+    url: "https://twitter.com/kitcat_en",
   },
   {
     text: "Instagram",
@@ -35,7 +35,7 @@ export const socials: Social[] = [
   {
     text: "Github",
     icon: SvgGithub,
-    url: "https://github.com/kitcatdotone",
+    url: "https://github.com/kitcat-dev",
   },
   {
     text: "LinkedIn",
