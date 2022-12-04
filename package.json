@@ -2,8 +2,8 @@
   "name": "www",
   "version": "2.2.0",
   "description": "My personal site",
-  "author": "Albert Abdulmanov <hello@lbrt.me>",
-  "homepage": "https://github.com/kitcatdotone/www",
+  "author": "Albert Abdulmanov <hello@kitcat.dev>",
+  "homepage": "https://github.com/kitcat-dev/www",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,7 +16,6 @@
     "clean": "rm -rf .cache .vercel/cache dist"
   },
   "dependencies": {
-    "@splitbee/web": "^0.2.4",
     "@tailwindcss/typography": "^0.4.1",
     "next": "^11.1.2",
     "postcss": "^8.3.6",
@@ -44,7 +43,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kitcatdotone/www.git"
+    "url": "git+https://github.com/kitcat-dev/www.git"
   },
   "eslintConfig": {
     "extends": "next"

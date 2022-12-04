@@ -3,7 +3,7 @@
 
 # TEAM
 
-    Albert Abdulmanov -- Developer -- @kitcatdotone
+    Albert Abdulmanov -- Developer -- @kitcat-dev
 
 # TECHNOLOGY COLOPHON
 
