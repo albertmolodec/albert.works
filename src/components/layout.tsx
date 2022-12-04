@@ -10,7 +10,7 @@ const Layout: FC = ({ children }) => {
         <meta charSet="UTF-8" />
         <title>Home - Albert Abdulmanov</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Frontend Developer from St. Petersburg 🇷🇺" />
+        <meta name="description" content="Frontend Developer" />
         z``
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
