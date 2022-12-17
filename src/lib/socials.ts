@@ -1,5 +1,6 @@
 import { SvgEmail } from "../components/icons/email";
 import { SvgTwitter } from "../components/icons/twitter";
+import { SvgMastodon } from "../components/icons/mastodon";
 import { SvgInstagram } from "../components/icons/instagram";
 import { SvgTelegram } from "../components/icons/telegram";
 import { SvgGithub } from "../components/icons/github";
@@ -21,6 +22,11 @@ export const socials: Social[] = [
     text: "Twitter",
     icon: SvgTwitter,
     url: "https://twitter.com/kitcat_en",
+  },
+  {
+    text: "Mastodon",
+    icon: SvgMastodon,
+    url: "https://mstdn.party/@kitcat",
   },
   {
     text: "Instagram",
