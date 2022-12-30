@@ -5,7 +5,7 @@ import ContentLoader from 'react-content-loader'
 import useSWR from 'swr'
 
 import { MyMath } from '../../lib/math'
-import { dislikeList, supportList } from '../../lib/preferences'
+import { dislikeList } from '../../lib/preferences'
 
 const EXPECTED_WISHLIST_LENGTH = 19
 
@@ -68,17 +68,7 @@ const Wishlist = () => {
       )}
 
       <p className="mt-3">
-        There is another option. If you don't know what to give, you can make a donation to the one of the russian
-        independent media, human rights, charitable or environmental organization:{' '}
-        {supportList.map(({ href, text }, index) => (
-          <Fragment key={href}>
-            {index !== 0 && ', '}
-            <a target="_blank" rel="noreferrer" href={href} className="text-blue-700 hover:underline-link">
-              «{text}»
-            </a>
-          </Fragment>
-        ))}{' '}
-        or any other. I will be glad of such a donation no less than any other another gift.
+      There is another option. If you don't know what to give, you can donate to one of the independent media, human rights, charitable or environmental organizations. I will be glad of such a donation no less than any other gift.
       </p>
 
       <h2 className="font-bold text-xl mt-4">Better not</h2>
