@@ -1,54 +1,33 @@
-import Airtable from 'airtable'
-
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 export const dynamic = 'force-dynamic'
 
 const WISHLIST_BASE_ID = 'apppJBdNlpiff8yfq'
 
-const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(WISHLIST_BASE_ID)
-
 export default async function GET(_: Request) {
-  const records = await new Promise((resolve, reject) => {
-    const myWishes = []
-    base('Gift Ideas')
-      .select({
-        maxRecords: 100,
-        view: 'Main View',
-        filterByFormula: '{Potential Recipients} = "Я"',
-        fields: ['Item', 'URL', 'Pic', 'Done', 'Own'],
-        sort: [
-          {
-            field: 'Done',
-            direction: 'asc',
-          },
-          {
-            field: 'Own',
-            direction: 'asc',
-          },
-          {
-            field: 'URL',
-            direction: 'desc',
-          },
-        ],
-      })
-      .eachPage(
-        (records, fetchNextPage) => {
-          records.forEach((record) => {
-            myWishes.push(record.fields)
-          })
-          fetchNextPage()
-        },
-        (err) => {
-          if (err) {
-            console.error(err)
-            reject(err)
-          } else {
-            resolve(myWishes)
-          }
-        }
-      )
-  })
-  const body = JSON.stringify({ records })
+  const response = await fetch(
+    `https://api.airtable.com/v0/${WISHLIST_BASE_ID}/GiftIdeas` +
+      '?maxRecords=100' +
+      '&view=Main%20View' +
+      '&filterByFormula=%7BPotential+Recipients%7D+%3D+%22%D0%AF%22' +
+      '&fields%5B%5D=Item' +
+      '&fields%5B%5D=URL' +
+      '&fields%5B%5D=Pic' +
+      '&fields%5B%5D=Done' +
+      '&fields%5B%5D=Own' +
+      '&sort%5B0%5D%5Bfield%5D=Done' +
+      '&sort%5B0%5D%5Bdirection%5D=asc' +
+      '&sort%5B1%5D%5Bfield%5D=Own' +
+      '&sort%5B1%5D%5Bdirection%5D=asc' +
+      '&sort%5B2%5D%5Bfield%5D=URL' +
+      '&sort%5B2%5D%5Bdirection%5D=desc',
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.AIRTABLE_API_KEY}`,
+      },
+    }
+  )
+
+  const body = JSON.stringify(await response.json())
 
   return new Response(body, {
     status: 200,

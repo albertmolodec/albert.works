@@ -49,7 +49,7 @@ const Wishlist = () => {
       )}
       {data && (
         <ol className="list-decimal pl-5 mt-4">
-          {data.records.map(({ Item: name, Own, Done, URL }) => (
+          {data.records.map(({ fields: { Item: name, Own, Done, URL } }) => (
             <li key={name}>
               {URL && !Done && !Own ? (
                 <a href={URL} target="_blank" rel="noreferrer" className="text-blue-700 hover:underline-link">
