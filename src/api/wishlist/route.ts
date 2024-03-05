@@ -1,40 +1,35 @@
 import Airtable from 'airtable'
 
+export const runtime = 'edge'
+export const dynamic = 'force-dynamic'
+
 const WISHLIST_BASE_ID = 'apppJBdNlpiff8yfq'
-const options = {
-  table: {
-    giftIdeas: 'Gift Ideas',
-    recipients: 'Recipients',
-  },
-  fields: ['Item', 'URL', 'Pic', 'Done', 'Own'],
-  sort: [
-    {
-      field: 'Done',
-      direction: 'asc',
-    },
-    {
-      field: 'Own',
-      direction: 'asc',
-    },
-    {
-      field: 'URL',
-      direction: 'desc',
-    },
-  ],
-}
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(WISHLIST_BASE_ID)
 
-async function wishlist(_, res) {
+export async function GET(_: Request) {
   const records = await new Promise((resolve, reject) => {
     const myWishes = []
-    base(options.table.giftIdeas)
+    base('Gift Ideas')
       .select({
         maxRecords: 100,
         view: 'Main View',
         filterByFormula: '{Potential Recipients} = "Я"',
-        fields: options.fields,
-        sort: options.sort,
+        fields: ['Item', 'URL', 'Pic', 'Done', 'Own'],
+        sort: [
+          {
+            field: 'Done',
+            direction: 'asc',
+          },
+          {
+            field: 'Own',
+            direction: 'asc',
+          },
+          {
+            field: 'URL',
+            direction: 'desc',
+          },
+        ],
       })
       .eachPage(
         (records, fetchNextPage) => {
@@ -54,8 +49,11 @@ async function wishlist(_, res) {
       )
   })
   const body = JSON.stringify({ records })
-  res.setHeader('content-type', 'application/json')
-  res.status(200).send(body)
-}
 
-export default wishlist
+  return new Response(body, {
+    status: 200,
+    headers: {
+      'content-type': 'application/json',
+    },
+  })
+}
