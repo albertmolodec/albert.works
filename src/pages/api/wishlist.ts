@@ -1,6 +1,6 @@
 import Airtable from 'airtable'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 const WISHLIST_BASE_ID = 'apppJBdNlpiff8yfq'
