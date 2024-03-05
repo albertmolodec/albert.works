@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import Header from './header'
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
     <div className="h-full min-h-screen flex flex-col p-4 text-black">
       <Head>

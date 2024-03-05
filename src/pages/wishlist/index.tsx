@@ -68,7 +68,9 @@ const Wishlist = () => {
       )}
 
       <p className="mt-3">
-      There is another option. If you don't know what to give, you can donate to one of the independent media, human rights, charitable or environmental organizations. I will be glad of such a donation no less than any other gift.
+        There is another option. If you don't know what to give, you can donate to one of the independent media, human
+        rights, charitable or environmental organizations. I will be glad of such a donation no less than any other
+        gift.
       </p>
 
       <h2 className="font-bold text-xl mt-4">Better not</h2>

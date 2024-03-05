@@ -9,6 +9,6 @@
     "url": "git+https://github.com/kitcat-dev/www.git"
   },
   "dependencies": {
-    "airtable": "^0.11.0"
+    "airtable": "^0.12.2"
   }
 }
