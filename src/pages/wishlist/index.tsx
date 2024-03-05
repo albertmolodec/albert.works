@@ -19,7 +19,7 @@ const renderLines = (n: number) => {
 }
 
 const Wishlist = () => {
-  const { data } = useSWR('/api/wishlist')
+  const { data } = useSWR('/api/wishlist', (url) => fetch(url).then((res) => res.json()))
 
   return (
     <>
