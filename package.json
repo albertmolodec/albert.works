@@ -1,52 +1,33 @@
 {
   "name": "www",
-  "version": "2.2.0",
-  "description": "My personal site",
+  "version": "3.0.0",
+  "description": "My personal website",
   "author": "Albert Abdulmanov <hello@kitcat.dev>",
   "homepage": "https://github.com/kitcat-dev/www",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "update": "run-p update:*",
-    "update:deps": "npx npm-check-updates",
-    "update:cssdb": "npx update-browserslist-db@latest",
-    "generate-icons": "node scripts/generate-icons.js",
-    "clean": "rm -rf .cache .vercel/cache dist"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "generate-icons": "bun src/scripts/generate-icons.ts"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.10",
-    "@vercel/analytics": "^1.2.2",
-    "next": "^14.1.2",
-    "postcss": "^8.4.35",
-    "react-content-loader": "^6.2.1",
-    "react-dom": "^18.2.0",
-    "react": "^18.2.0",
-    "swr": "^2.2.5",
-    "typescript": "^5.3.3"
-  },
-  "devDependencies": {
-    "@svgr/core": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
-    "@svgr/plugin-svgo": "^8.1.0",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.2.63",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
-    "eslint-config-next": "^14.1.2",
-    "eslint-plugin-unicorn": "^51.0.1",
-    "eslint": "^8.57.0",
-    "npm-run-all": "^4.1.5",
-    "tailwindcss": "^3.4.1",
-    "tiny-glob": "^0.2.9"
+    "astro": "^4.15.9",
+    "@astrojs/check": "^0.9.3",
+    "typescript": "^5.6.2"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kitcat-dev/www.git"
   },
-  "eslintConfig": {
-    "extends": "next"
+  "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-prettier": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/bun": "^1.1.10"
   }
 }
