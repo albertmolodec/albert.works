@@ -1,4 +1,5 @@
-export const SvgEmail = (props) => (
+import type { SVGProps } from "react";
+export const SvgEmail = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"

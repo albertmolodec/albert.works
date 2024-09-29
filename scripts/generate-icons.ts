@@ -1,30 +1,25 @@
 /* Based on https://blog.sapegin.me/til/react/generating-typescript-react-components-from-svg-icons-using-svgr/. */
-
-import { parse } from "node:path";
+import path from "node:path";
 import Bun from "bun";
-
 import svgr from "@svgr/core";
 
-function getComponentName(iconPath: string) {
-  const name = parse(iconPath).name;
-  const capitalizedName = name[0].charAt(0).toUpperCase() + name.slice(1);
-  return `Svg${capitalizedName}`;
-}
-
-const icons = new Bun.Glob(`*.svg`);
-
-for await (const iconPath of icons.scan({
+const icons = new Bun.Glob(`*.svg`).scan({
   cwd: "src/assets/icons",
   absolute: true,
-})) {
+});
+
+for await (const iconPath of icons) {
   const svgCode = await Bun.file(iconPath).text();
-  const { name: fileName } = parse(iconPath);
+  const fileName = path.parse(iconPath).name;
+
+  const componentName =
+    "Svg" + fileName[0].charAt(0).toUpperCase() + fileName.slice(1);
 
   const componentCode = svgr.transform.sync(
     svgCode,
     {
       template: (variables, context) =>
-        context.tpl`export const ${variables.componentName} = props => ${variables.jsx};`,
+        context.tpl`import type { SVGProps } from "react";export const ${variables.componentName} = (props: SVGProps<SVGSVGElement>) => ${variables.jsx};`,
       plugins: [
         "@svgr/plugin-svgo",
         "@svgr/plugin-jsx",
@@ -32,8 +27,9 @@ for await (const iconPath of icons.scan({
       ],
       icon: true,
       svgProps: { fill: "currentColor" },
+      typescript: true,
     },
-    { componentName: getComponentName(iconPath) }
+    { componentName: componentName }
   );
 
   await Bun.write(`src/components/icons/${fileName}.tsx`, componentCode);

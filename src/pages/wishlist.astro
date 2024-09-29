@@ -1,0 +1,182 @@
+---
+import Layout from "../layouts/Layout.astro";
+// import ContentLoader from "react-content-loader";
+import { Image } from "astro:assets";
+import catImg from "../assets/cat.jpg";
+
+// import { MyMath } from "../lib/math";
+
+type Record = {
+  fields: { Item: string; Own: boolean; Done: boolean; URL: string };
+};
+
+const response = await fetch(new URL("/api/wishlist.json", Astro.url));
+const data = (await response.json()) as { records: Record[] };
+
+const dislikeList: string[] = [
+  "Trinkets",
+  "Souvenirs",
+  "Books",
+  "Plants",
+  "Certificates for active recreation",
+  "Any alcohol except cider and wine",
+];
+
+// const EXPECTED_WISHLIST_LENGTH = 19;
+
+// const renderLines = (n: number) => {
+//   return Array.from(Array(n).keys()).map((_, index) => (
+//     <Fragment>
+//       <circle cx="10" cy={20 + 30 * index} r="8" />
+//       <rect
+//         x="25"
+//         y={15 + 30 * index}
+//         rx="5"
+//         ry="5"
+//         width={380 * MyMath.randomFloatInRange(0.6, 1)}
+//         height="10"
+//       />
+//     </Fragment>
+//   ));
+// };
+---
+
+<Layout title="Wishlist">
+  <div class="flex flex-col-reverse sm:flex-row w-full justify-between">
+    <h1 class="font-bold text-2xl">Wishlist</h1>
+
+    <div
+      class="bg-teal-100 border-r-4 border-teal-500 rounded-l text-teal-900 px-4 py-3 shadow-md w-auto inline-block mb-4 sm:mb-0"
+      role="alert"
+    >
+      My birthday is August 12.
+    </div>
+  </div>
+  {
+    (
+      // data ? (
+      <ol class="list-decimal pl-5 mt-4">
+        {data.records.map(({ fields: { Item: name, Own, Done, URL } }) => (
+          <li>
+            {URL && !Done && !Own ? (
+              <a
+                href={URL}
+                target="_blank"
+                rel="noreferrer"
+                class="text-blue-700 hover:underline-link"
+              >
+                {name}
+              </a>
+            ) : (
+              <span class="text-gray-500">
+                <span class={`${Done || Own ? "line-through" : "text-black"}`}>
+                  {name}
+                </span>
+                {Done && " ✅"}
+                {Own && " (later)"}
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
+      // ) : (
+      //   <ContentLoader
+      //     speed={2}
+      //     width={400}
+      //     height={24 * EXPECTED_WISHLIST_LENGTH}
+      //     viewBox={`0 0 400 ${24 * EXPECTED_WISHLIST_LENGTH}`}
+      //     backgroundColor="#f3f3f3"
+      //     foregroundColor="#ecebeb"
+      //     uniqueKey="wishlist-loader"
+      //   >
+      //     {Array.from(Array(EXPECTED_WISHLIST_LENGTH).keys()).map((_, index) => (
+      //       <Fragment>
+      //         <circle cx="10" cy={20 + 30 * index} r="8" />
+      //         <rect
+      //           x="25"
+      //           y={15 + 30 * index}
+      //           rx="5"
+      //           ry="5"
+      //           width={380 * MyMath.randomFloatInRange(0.6, 1)}
+      //           height="10"
+      //         />
+      //       </Fragment>
+      //     ))}
+      //     {/* {renderLines(EXPECTED_WISHLIST_LENGTH)} */}
+      //   </ContentLoader>
+      // )
+    )
+  }
+
+  <p class="mt-3">
+    There is another option. If you don't know what to give, you can donate to
+    one of the independent media, human rights, charitable or environmental
+    organizations. I will be glad of such a donation no less than any other
+    gift.
+  </p>
+
+  <h2 class="font-bold text-xl mt-4">Better not</h2>
+
+  <ul class="list-decimal pl-5 mt-3">
+    {dislikeList.map((item) => <li class="mt-1">{item}</li>)}
+  </ul>
+
+  <h2 class="font-bold text-xl mt-4">Postcards</h2>
+  <p class="mt-3">
+    I love postcards. Real physical postcards. If you decide to send one, here
+    is the instruction. To reach me, the postcard should have stamps.
+  </p>
+
+  <div
+    id="postcard"
+    class="grid grid-cols-1 sm:grid-cols-2 rounded bg-white shadow-md text-sm sm:text-base max-w-2xl m-auto mt-8"
+  >
+    <div class="flex flex-col p-4 border-b sm:border-r sm:border-b-0 sm:pr-8">
+      <div class="flex flex-col flex-grow items-center justify-center pb-8">
+        <span class="text-center italic pb-2">Albert, happy birthday!</span>
+        <Image class="w-40" src={catImg} alt="Cat stretching its paws" />
+      </div>
+      <div class="flex justify-end h-auto">
+        Your friend<span class="ml-3 w-8 border-b"></span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 p-4 sm:pl-8">
+      <div class="flex border-b pl-1 mt-8">Albert Abdulmanov</div>
+      <div class="flex border-b pl-1 mt-2">
+        [Feel free to ask my address personally]
+      </div>
+    </div>
+  </div>
+
+  <style>
+    #postcard {
+      position: relative;
+      --blue: #114abc;
+      --red: #bf2010;
+      --width: 3px;
+    }
+
+    #postcard:before {
+      content: "";
+      background: repeating-linear-gradient(
+        45deg,
+        var(--blue),
+        var(--blue) 10px,
+        #fff 10px,
+        #fff 20px,
+        var(--red) 20px,
+        var(--red) 30px,
+        #fff 30px,
+        #fff 40px
+      );
+      width: calc(100% + var(--width) * 4);
+      height: calc(100% + var(--width) * 4);
+      border-radius: var(--width);
+      position: absolute;
+      top: calc(-2 * var(--width));
+      left: calc(-2 * var(--width));
+      z-index: -1;
+    }
+  </style>
+</Layout>
