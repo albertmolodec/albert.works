@@ -1,0 +1,33 @@
+---
+import Header from "./Header.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Frontend Developer" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title + " - Albert Abdulmanov"}</title>
+  </head>
+  <body class="h-full min-h-screen flex flex-col p-4 text-black">
+    <Header />
+    <main class="max-w-screen-md mx-auto w-full flex flex-col flex-1 py-4">
+      <slot />
+    </main>
+  </body>
+</html>
+<style is:global>
+  /*  */
+</style>

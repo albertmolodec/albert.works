@@ -1,0 +1,32 @@
+---
+
+const isLinkExternal = (href: string) => href.startsWith('http');
+const externalLinkProps = { target: '_blank', rel: 'noreferrer' };
+const currentPath = Astro.url.pathname;
+
+const links: { href: string; text: string}[] = [
+  { href: '/', text: 'Home' },
+  { href: '/wishlist', text: 'Wishlist' },
+  { href: 'https://blog.kitcat.dev', text: 'Blog' },
+  { href: 'https://demo.kitcat.dev', text: 'Demos' },
+]
+
+---
+
+<header class="py-8 max-w-screen-md mx-auto w-full">
+  <nav>
+    <ul class="flex">
+      {links.map(({ href, text }, index) => (
+        <li class={index === 0 ? 'pl-0' : 'pl-4'}>
+          <a
+            class={`hover:underline-link ${currentPath === href ? 'font-bold' : ''}`}
+            href={href}
+            {...(isLinkExternal(href) ? externalLinkProps : {})}
+          >
+            {text}{isLinkExternal(href) ? <span> ↗</span> : null}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
